@@ -1,0 +1,12 @@
+Setup environtment:
+1. Spring mvc web
+2. JUnit
+3. JavaX = Java Servlet API
+4. pom.xml dinh nghia cac dependencies.
+5. 
+	+ Create folder WEB-INF
+	+ Create web.xml
+		- web-app
+		- create servlet, 1 dispatcherServlet.
+6. create Spring Config File:thoitrangDispatcherServlet-servlet.xml
+		
