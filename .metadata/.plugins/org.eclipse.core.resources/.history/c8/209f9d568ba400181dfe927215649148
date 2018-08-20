@@ -1,0 +1,44 @@
+package com.tumv.controller;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.tumv.common.DatabaseDienThoai;
+
+@Controller
+public class TrangChuController {
+	
+	// Use to respone content as text to view.
+	/*@RequestMapping("/")
+	@ResponseBody
+	public String ViewTrangChu() {
+		return "Hello you!";
+	}*/
+	
+	// Return to page jsp as trangchu.jsp.
+	/*@RequestMapping("/")	
+	public String ViewTrangChu() {
+		return "views/trangchu.jsp";
+	}
+	
+	@RequestMapping("/login")	
+	public String login() {
+		return "views/login.jsp";
+	}*/
+	
+	//
+	@RequestMapping("/")	
+	public String ViewTrangChu() {
+		ApplicationContext context = new ClassPathXmlApplicationContext("loC.xml");
+		DatabaseDienThoai data = (DatabaseDienThoai) context.getBean("");
+		data.getListDienThoai();
+		return "trangchu";
+	}
+	
+	@RequestMapping("/login")	
+	public String login() {
+		return "login";
+	}
+}

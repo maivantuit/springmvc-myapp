@@ -1,0 +1,12 @@
+package com.tumv.common;
+import javax.sql.DataSource;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class DatabaseDienThoai {
+	
+	public void setDataSource(DataSource dbDienThoai) {
+		
+	}
+}

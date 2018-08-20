@@ -1,0 +1,42 @@
+package com.tumv.common;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
+
+import com.tumv.model.SanPham;
+
+@Repository
+public class DatabaseDienThoai {
+	
+	private JdbcTemplate jdbcTemplate;
+	
+	@Autowired
+	public void setDataSource(DataSource dataSource) {
+		this.jdbcTemplate = new JdbcTemplate(dataSource);
+		
+	}
+	
+	public void getListDienThoai() {
+		String sql = "select * from SanPham";
+		List<SanPham> listSanPham = jdbcTemplate.query(sql, new RowMapper<SanPham>() {
+			public SanPham mapRow(ResultSet rs, int rowNum) throws SQLException {
+				SanPham sp =  new SanPham();
+				sp.setMaSP(rs.getString("MaSP"));
+				sp.setTenSP(rs.getString("TenSP"));
+				sp.setTenSP(rs.getString("Gia"));
+				return sp;
+			}			
+		});
+		
+		for(SanPham item : listSanPham) {
+			System.out.println(item.getMaSP()+" - "+item.getTenSP());
+		}
+	}
+}

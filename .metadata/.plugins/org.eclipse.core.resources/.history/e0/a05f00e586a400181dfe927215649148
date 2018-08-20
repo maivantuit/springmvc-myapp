@@ -1,0 +1,7 @@
+package com.tumv.model;
+
+public class SanPham {
+	private String maSP;
+	private String tenSP;
+	private String gia;
+}

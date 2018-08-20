@@ -9,4 +9,10 @@ Setup environtment:
 		- web-app
 		- create servlet, 1 dispatcherServlet.
 6. create Spring Bean Config File:thoitrangDispatcherServlet-servlet.xml
-		
+Data access:
+1. Transaction management
+	+ global
+	+ local
+	+ commit
+	+ rollback
+2. JDBC DataSource

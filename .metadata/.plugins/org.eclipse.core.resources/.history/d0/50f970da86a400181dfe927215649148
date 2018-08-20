@@ -1,0 +1,23 @@
+package com.tumv.common;
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class DatabaseDienThoai {
+	
+	private JdbcTemplate jdbcTemplate;
+	
+	@Autowired
+	public void setDataSource(DataSource dataSource) {
+		this.jdbcTemplate = new JdbcTemplate(dataSource);
+	}
+	
+	public void getListDienThoai() {
+		String sql = "select * from SanPham";
+		List<SanPham> listSanPham = jdbcTemplate.query(psc, new RowMapper<SanPham>);
+	}
+}
